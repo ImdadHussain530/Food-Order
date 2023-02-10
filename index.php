@@ -38,7 +38,6 @@
                     echo 'Category not added';
                 }
             }
-
             ?>
 
             
@@ -84,7 +83,7 @@
             }     
             ?>
 
-            <div class="clearfix"></div>
+            <div class="clearfix">yes</div>
 
             
 
