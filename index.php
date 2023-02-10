@@ -83,7 +83,7 @@
             }     
             ?>
 
-            <div class="clearfix">yes</div>
+            <div class="clearfix"></div>
 
             
 
