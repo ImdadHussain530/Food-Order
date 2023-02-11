@@ -37,7 +37,7 @@ try {
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'BUrger pic';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->Body    = 'git';
     $mail->AltBody = 'hii if u get the buger pic then thanks me';
 
     $mail->send();
