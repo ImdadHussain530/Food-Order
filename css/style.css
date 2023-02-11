@@ -89,22 +89,6 @@ fieldset{
 
 /* CSSS for navbar section */
 
-.logo{
-    width: 10%;
-    float: left;
-}
-.menu{
-    line-height: 60px;
-}
-.menu ul{
-    list-style-type: none;
-}
-
-.menu ul li{
-    display: inline;
-    padding: 1%;
-    font-weight: bold;
-}
 
 
 /* CSS for Food SEarch Section */

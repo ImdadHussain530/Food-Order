@@ -14,7 +14,7 @@
             if ($count > 0) {
                 while ($rows = mysqli_fetch_assoc($res)) {
         ?>
-                    <a href="category-foods.html">
+                    <a href="<?php echo SITEURL.'category-foods.php?id='.$rows['id']?>">
                         <div class="box-3 float-container">
                             <img src="images\category\<?php echo $rows['image_name']?>" alt="Pizza" class="img-responsive img-curve">
 

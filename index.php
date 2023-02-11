@@ -4,7 +4,7 @@
     <section class="food-search text-center">
         <div class="container">
             
-            <form action="food-search.html" method="POST">
+            <form action="<?php echo SITEURL."food-search.php"?>" method="POST">
                 <input type="search" name="search" placeholder="Search for Food.." required>
                 <input type="submit" name="submit" value="Search" class="btn btn-primary">
             </form>
@@ -12,6 +12,20 @@
         </div>
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
+    <section class="container-fluid">
+        <div class="row mt-2 justify-content-center">
+            <div class="col-5 ">
+
+            <?php
+                if(isset($_SESSION['msg'])){
+                    echo $_SESSION['msg'];
+                    unset($_SESSION['msg']);
+                }
+            ?>
+            </div>
+        </div>
+    
+    </section>
 
     <!-- CAtegories Section Starts Here -->
     <section class="categories">
@@ -25,7 +39,7 @@
                 if ($count > 0) {
                     while($rows = mysqli_fetch_assoc($res)){
                         ?>
-                        <a href="category-foods.html">
+                        <a href="<?php echo SITEURL.'category-foods.php?id='.$rows['id']?>">
                         <div class="box-3 float-container">
                             <img src="images\category\<?php echo $rows['image_name']?>" alt="Pizza" class="img-responsive img-curve">
 
@@ -61,7 +75,18 @@
                         ?>
                         <div class="food-menu-box">
                             <div class="food-menu-img">
-                                <img src="<?php echo SITEURL."/images/food/".$rows['image_name'];?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                <?php
+                                    if($rows['image_name']!=""){
+                                        ?>
+                                        <img src="<?php echo SITEURL."/images/food/".$rows['image_name'];?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                        <?php
+                                        
+                                    }else{
+                                        echo "<h4 style='color:red; margin-top:50%; transform: translatey(-21%); text-align: center;'>Image not avaible</h4>";
+                                    }
+                                ?>
+                                
+                                
                             </div>
 
                             <div class="food-menu-desc">
@@ -72,7 +97,7 @@
                                 </p>
                                 <br>
 
-                                <a href="<?php echo SITEURL.'order.php';?>" class="btn btn-primary">Order Now</a>
+                                <a href="<?php echo SITEURL.'order.php?id='.$rows['id'];?>" class="btn btn-primary">Order Now</a>
                             </div>
                         </div>
                         

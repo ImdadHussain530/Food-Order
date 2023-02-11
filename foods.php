@@ -2,14 +2,14 @@
 
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
-    <div class="container">
+        <div class="container">
+            
+            <form action="<?php echo SITEURL."food-search.php"?>" method="POST">
+                <input type="search" name="search" placeholder="Search for Food.." required>
+                <input type="submit" name="submit" value="Search" class="btn btn-primary">
+            </form>
 
-        <form action="food-search.html" method="POST">
-            <input type="search" name="search" placeholder="Search for Food.." required>
-            <input type="submit" name="submit" value="Search" class="btn btn-primary">
-        </form>
-
-    </div>
+        </div>
 </section>
 <!-- fOOD sEARCH Section Ends Here -->
 
@@ -29,7 +29,16 @@
         ?>
                     <div class="food-menu-box">
                         <div class="food-menu-img">
-                            <img src="<?php echo SITEURL."/images/food/".$rows['image_name'];?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                        <?php
+                                    if($rows['image_name']!=""){
+                                        ?>
+                                        <img src="<?php echo SITEURL."/images/food/".$rows['image_name'];?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                        <?php
+                                        
+                                    }else{
+                                        echo "<h4 style='color:red; margin-top:50%; transform: translatey(-50%); text-align: center;'>Image not avaible</h4>";
+                                    }
+                                ?>
                         </div>
 
                         <div class="food-menu-desc">

@@ -1,0 +1,17 @@
+{
+    "name": "hp/food-order",
+    "autoload": {
+        "psr-4": {
+            "Hp\\FoodOrder\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ImdadHussain530",
+            "email": "imdadhussain.chudiya@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.7"
+    }
+}
