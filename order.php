@@ -1,4 +1,5 @@
 <?php include('partials-front/header.php');
+include('sendMail.php');
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 } else {
@@ -109,6 +110,9 @@ if (isset($_POST['submit'])) {
      ";
         $res2 = mysqli_query($conn,$sql2);
     if ($res2 == true) {
+        $subject= "food-Order (Order placed successfully)";
+        $msg="Hi $customer_name,Your Order Placed Successfully.";
+        mailto($customer_email,$subject,$msg);
         $_SESSION['msg'] = "<div class='alert text-center alert-success '>Order Placed Successfully.</div>";
         header("location:" . SITEURL . 'index.php');
     } else {

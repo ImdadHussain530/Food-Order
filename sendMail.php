@@ -8,7 +8,9 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
-//Create an instance; passing `true` enables exceptions
+function mailto($emailto,$subject,$msg){
+
+    //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
 try {
@@ -24,24 +26,28 @@ try {
 
     //Recipients
     $mail->setFrom('imdadhussain.chudiya@gmail.com', 'Mailer');
-    $mail->addAddress('imdad190hussain@gmail.com', 'ImdadHussain');     //Add a recipient
+    $mail->addAddress("$emailto", 'Recipient');     //Add a recipient
     // $mail->addAddress('ellen@example.com');               //Name is optional
-    $mail->addReplyTo('imdad190hussain@gmail.com', 'imdadhussain');
+    $mail->addReplyTo("$emailto", 'Recipient');
     // $mail->addCC('cc@example.com');
     // $mail->addBCC('bcc@example.com');
 
     //Attachments
-    $mail->addAttachment('images/burger.jpg');         //Add attachments
+    // $mail->addAttachment('images/burger.jpg');         //Add attachments
     // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'BUrger pic';
-    $mail->Body    = 'git';
-    $mail->AltBody = 'hii if u get the buger pic then thanks me';
+    $mail->Subject = "$subject";
+    $mail->Body    = "$msg";
+    $mail->AltBody = "$msg";
 
     $mail->send();
-    echo 'Message has been sent';
+    return 'Message has been sent';
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    return "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
+
+
+}
+
